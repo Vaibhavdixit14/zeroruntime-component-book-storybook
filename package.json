@@ -10,7 +10,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "typecheck": "tsc --noEmit",
-    "deploy": "vercel build --prod && vercel deploy --prebuilt --prod"
+    "deploy": "npx vercel build --prod && npx vercel deploy --prebuilt --prod"
   },
   "dependencies": {
     "lucide-react": "^1.57.0",
