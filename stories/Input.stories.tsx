@@ -3,7 +3,7 @@ import { Mail, Search } from "lucide-react";
 import { Field, Input } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Forms/Input",
+  title: "Input",
   component: Input,
   tags: ["autodocs"],
   argTypes: {

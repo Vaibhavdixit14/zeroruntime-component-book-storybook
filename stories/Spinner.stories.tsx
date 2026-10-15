@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Spinner } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Display/Spinner",
+  title: "Spinner",
   component: Spinner,
   tags: ["autodocs"],
   argTypes: { size: { control: "select", options: ["sm", "md", "lg"] } },

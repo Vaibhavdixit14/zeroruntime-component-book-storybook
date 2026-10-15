@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Switch } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Forms/Switch",
+  title: "Switch",
   component: Switch,
   tags: ["autodocs"],
   args: { id: "auto-deploy", label: "Auto-deploy on push" },

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Skeleton } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Display/Skeleton",
+  title: "Skeleton",
   component: Skeleton,
   tags: ["autodocs"],
   args: { className: "h-4 w-48" },

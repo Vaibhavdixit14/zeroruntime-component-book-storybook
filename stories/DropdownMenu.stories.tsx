@@ -3,7 +3,7 @@ import { Copy, ExternalLink, MoreHorizontal, RotateCw, Trash2 } from "lucide-rea
 import { Button, DropdownMenu } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Overlays/DropdownMenu",
+  title: "DropdownMenu",
   component: DropdownMenu,
   tags: ["autodocs"],
   args: {

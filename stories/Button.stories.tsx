@@ -6,7 +6,7 @@ const VARIANTS: ButtonVariant[] = ["primary", "secondary", "outline", "ghost", "
 const SIZES: ButtonSize[] = ["sm", "md", "lg"];
 
 const meta = {
-  title: "Forms/Button",
+  title: "Button",
   component: Button,
   tags: ["autodocs"],
   argTypes: {

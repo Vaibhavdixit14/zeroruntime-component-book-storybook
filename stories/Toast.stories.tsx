@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Button, Toaster, toast } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Feedback/Toast",
+  title: "Toast",
   component: Toaster,
   tags: ["autodocs"],
   argTypes: {

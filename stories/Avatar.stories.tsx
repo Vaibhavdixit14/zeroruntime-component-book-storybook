@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Avatar } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Display/Avatar",
+  title: "Avatar",
   component: Avatar,
   tags: ["autodocs"],
   argTypes: { size: { control: "select", options: ["sm", "md", "lg"] } },

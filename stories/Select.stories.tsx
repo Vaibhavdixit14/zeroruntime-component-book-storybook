@@ -9,7 +9,7 @@ const regions = [
 ];
 
 const meta = {
-  title: "Forms/Select",
+  title: "Select",
   component: Select,
   tags: ["autodocs"],
   args: { options: regions, placeholder: "Select a region" },

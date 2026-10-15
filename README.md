@@ -10,7 +10,7 @@ npm run build-storybook  # static build → storybook-static/
 
 ## Adding a story
 
-When a component is added to the book: bump the tag in `package.json`, `npm install`, then add `stories/<Group>/<Component>.stories.tsx` (see `stories/Buttons/Button.stories.tsx`).
+When a component is added to the book: bump the tag in `package.json`, `npm install`, then add `stories/<Component>.stories.tsx` (see `stories/Button.stories.tsx`).
 
 ## Deploy
 

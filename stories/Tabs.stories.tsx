@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Tabs } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Overlays/Tabs",
+  title: "Tabs",
   component: Tabs,
   tags: ["autodocs"],
   args: {

@@ -4,7 +4,7 @@ import { Badge, type BadgeVariant } from "zeroruntime-component-book";
 const VARIANTS: BadgeVariant[] = ["neutral", "accent", "success", "warning", "danger", "outline"];
 
 const meta = {
-  title: "Display/Badge",
+  title: "Badge",
   component: Badge,
   tags: ["autodocs"],
   argTypes: { variant: { control: "select", options: VARIANTS } },

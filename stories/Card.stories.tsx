@@ -10,7 +10,7 @@ import {
 } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Display/Card",
+  title: "Card",
   component: Card,
   tags: ["autodocs"],
   decorators: [(Story) => <div className="w-96"><Story /></div>],

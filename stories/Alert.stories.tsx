@@ -4,7 +4,7 @@ import { Alert, Button, type AlertVariant } from "zeroruntime-component-book";
 const VARIANTS: AlertVariant[] = ["info", "success", "warning", "danger"];
 
 const meta = {
-  title: "Display/Alert",
+  title: "Alert",
   component: Alert,
   tags: ["autodocs"],
   argTypes: { variant: { control: "select", options: VARIANTS } },

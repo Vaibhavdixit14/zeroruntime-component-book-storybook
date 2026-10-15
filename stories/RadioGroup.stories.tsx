@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { RadioGroup } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Forms/RadioGroup",
+  title: "RadioGroup",
   component: RadioGroup,
   tags: ["autodocs"],
   args: {

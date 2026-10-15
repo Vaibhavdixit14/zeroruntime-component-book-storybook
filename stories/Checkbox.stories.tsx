@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Checkbox } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Forms/Checkbox",
+  title: "Checkbox",
   component: Checkbox,
   tags: ["autodocs"],
   args: { id: "terms", label: "Notify me on failed deploys" },

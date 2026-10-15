@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Field, Textarea } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Forms/Textarea",
+  title: "Textarea",
   component: Textarea,
   tags: ["autodocs"],
   args: { placeholder: "Describe this deployment…" },

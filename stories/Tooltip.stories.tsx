@@ -3,7 +3,7 @@ import { Copy } from "lucide-react";
 import { Button, Tooltip } from "zeroruntime-component-book";
 
 const meta = {
-  title: "Overlays/Tooltip",
+  title: "Tooltip",
   component: Tooltip,
   tags: ["autodocs"],
   argTypes: { side: { control: "select", options: ["top", "right", "bottom", "left"] } },
