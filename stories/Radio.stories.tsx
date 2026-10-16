@@ -73,7 +73,7 @@ export const Cards: Story = {
 export const ItemsWithValueInCard: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex w-[320px] flex-col gap-(--space-16) rounded-(--radius-xl) border border-(--card-border) bg-(--card-bg) p-(--space-20)">
+    <div className="flex w-[320px] flex-col gap-(--space-16) rounded-xl border border-(--card-border) bg-(--card-bg) p-(--space-20)">
       <p className="text-heading-h6 text-(--text-primary)">Billing Period</p>
       <RadioGroup defaultValue="monthly">
         <RadioItem value="monthly" label="Monthly" valueLabel="$9.99/month" />

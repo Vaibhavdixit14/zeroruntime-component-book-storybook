@@ -43,7 +43,7 @@ export const AgentTemperature: Story = {
     const [value, setValue] = useState(0.3);
     const level = value < 0.34 ? "Medium" : value < 0.67 ? "Balanced" : "Creative";
     return (
-      <div className="flex w-[340px] flex-col gap-(--space-16) rounded-(--radius-xl) border border-(--card-border) bg-(--field-bg-subtle) p-(--space-16)">
+      <div className="flex w-[340px] flex-col gap-(--space-16) rounded-xl border border-(--card-border) bg-(--field-bg-subtle) p-(--space-16)">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-(--space-8) text-table-header text-(--text-secondary)">
             <Thermometer size={16} strokeWidth={1.75} aria-hidden />

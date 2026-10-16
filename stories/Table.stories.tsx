@@ -188,7 +188,7 @@ export const ExampleAgents: Story = {
           <TableHeaderCell>Tasks</TableHeaderCell>
           <TableHeaderCell>Assignee</TableHeaderCell>
         </TableHeader>
-        <div className="overflow-hidden rounded-(--radius-lg) border border-(--card-border) [&>[role=row]:last-child]:border-b-0">
+        <div className="overflow-hidden rounded-lg border border-(--card-border) [&>[role=row]:last-child]:border-b-0">
           {agents.map((a) => (
             <TableRow key={a.name}>
               <TableCell>{a.name}</TableCell>

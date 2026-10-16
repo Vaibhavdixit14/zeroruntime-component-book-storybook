@@ -29,7 +29,7 @@ export const Disabled: Story = { args: { disabled: true } };
 export const PairedWithSecondary: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex items-center gap-3 rounded-(--radius-xl) bg-(--card-bg) p-(--space-16)">
+    <div className="flex items-center gap-3 rounded-xl bg-(--card-bg) p-(--space-16)">
       <BrandButton size="md" trailingIcon={ArrowRight}>Upgrade to Pro</BrandButton>
       <Button variant="secondary" size="md">Maybe later</Button>
     </div>

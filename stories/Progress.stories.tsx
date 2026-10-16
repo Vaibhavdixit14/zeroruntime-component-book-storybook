@@ -77,7 +77,7 @@ export const MeterValues: Story = {
 };
 
 // Examples · Cards from the Figma documentation board
-const cardClasses = "flex w-[300px] flex-col gap-(--space-16) rounded-(--radius-xl) border border-(--card-border) bg-(--field-bg-subtle) p-(--space-16)";
+const cardClasses = "flex w-[300px] flex-col gap-(--space-16) rounded-xl border border-(--card-border) bg-(--field-bg-subtle) p-(--space-16)";
 const cardTitle = "flex items-center gap-(--space-8) text-table-header text-(--text-secondary)";
 
 export const ExampleCards: Story = {
