@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { Copy, ExternalLink, MoreHorizontal, RotateCw, Trash2 } from "lucide-react";
+import { ChevronDown, Copy, Pencil, Trash2 } from "lucide-react";
 import { Button, DropdownMenu } from "zeroruntime-component-book";
 
 const meta = {
@@ -7,19 +7,12 @@ const meta = {
   component: DropdownMenu,
   tags: ["autodocs"],
   args: {
-    trigger: (
-      <Button variant="outline" size="icon" aria-label="Deployment actions">
-        <MoreHorizontal className="size-4" />
-      </Button>
-    ),
+    trigger: <Button variant="secondary" trailingIcon={ChevronDown}>Actions</Button>,
     items: [
-      { type: "label", label: "api-gateway" },
-      { label: "Visit", icon: <ExternalLink />, shortcut: "⌘O" },
-      { label: "Copy URL", icon: <Copy />, shortcut: "⌘C" },
-      { label: "Redeploy", icon: <RotateCw /> },
-      { label: "Promote to production", disabled: true },
-      { type: "separator" },
-      { label: "Delete", icon: <Trash2 />, danger: true },
+      { label: "Rename", icon: Pencil },
+      { label: "Duplicate", icon: Copy },
+      { label: "Archive", disabled: true },
+      { label: "Delete", icon: Trash2 },
     ],
   },
 } satisfies Meta<typeof DropdownMenu>;
@@ -28,6 +21,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
-export const AlignStart: Story = {
-  args: { align: "start", trigger: <Button variant="outline">Actions</Button> },
+export const TextOnly: Story = {
+  args: { items: [{ label: "Today" }, { label: "Last 7 days" }, { label: "Last 30 days" }] },
 };

@@ -1,45 +1,53 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { Alert, Button, type AlertVariant } from "zeroruntime-component-book";
+import { Alert, type AlertVariant } from "zeroruntime-component-book";
 
-const VARIANTS: AlertVariant[] = ["info", "success", "warning", "danger"];
+const VARIANTS: AlertVariant[] = ["danger", "warning", "neutral", "success"];
 
 const meta = {
   title: "Alert",
   component: Alert,
   tags: ["autodocs"],
-  argTypes: { variant: { control: "select", options: VARIANTS } },
-  args: {
-    variant: "info",
-    title: "New region available",
-    children: "Functions can now run in Mumbai (bom1).",
+  argTypes: {
+    variant: { control: "select", options: VARIANTS },
+    title: { control: "text" },
+    children: { control: "text", name: "message" },
   },
-  decorators: [(Story) => <div className="w-[480px] max-w-full"><Story /></div>],
+  args: {
+    variant: "neutral",
+    title: "Knowledge base syncing",
+    children: "New documents are available to the agent in about a minute.",
+  },
+  decorators: [
+    (Story, { name }) =>
+      name === "All Types" ? <Story /> : <div className="w-[480px] max-w-full"><Story /></div>,
+  ],
 } satisfies Meta<typeof Alert>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Info: Story = {};
-export const Success: Story = { args: { variant: "success", title: "Deployment ready", children: "api-gateway is live." } };
-export const Warning: Story = { args: { variant: "warning", title: "Usage at 85%", children: "You're close to your monthly request limit." } };
-export const Danger: Story = { args: { variant: "danger", title: "Build failed", children: "image-resize exited with code 1." } };
-export const TitleOnly: Story = { args: { children: undefined } };
-export const WithAction: Story = {
-  args: {
-    variant: "danger",
-    title: "Build failed",
-    children: "image-resize exited with code 1.",
-    action: <Button variant="outline" size="sm">View logs</Button>,
-  },
+export const Neutral: Story = {};
+export const Danger: Story = {
+  args: { variant: "danger", title: "Agent failed to deploy", children: "The telephony number is no longer active." },
 };
+export const Warning: Story = {
+  args: { variant: "warning", title: "Usage at 85%", children: "You're close to this month's call minutes." },
+};
+export const Success: Story = {
+  args: { variant: "success", title: "Agent deployed", children: "Support agent is live on +1 555 0100." },
+};
+export const TitleOnly: Story = { args: { children: undefined } };
+export const WithClose: Story = { args: { onClose: () => {} } };
 
-export const AllVariants: Story = {
+// Mirrors the Figma documentation board
+export const AllTypes: Story = {
   parameters: { controls: { disable: true } },
+  decorators: [(Story) => <div className="w-[720px] max-w-full"><Story /></div>],
   render: () => (
-    <div className="flex flex-col gap-3">
-      {VARIANTS.map((v) => (
-        <Alert key={v} variant={v} title={`${v[0].toUpperCase()}${v.slice(1)} alert`}>
-          Supporting text for the {v} alert.
+    <div className="grid grid-cols-2 gap-(--space-16)">
+      {VARIANTS.map((variant) => (
+        <Alert key={variant} variant={variant} title="Title" onClose={() => {}}>
+          Message
         </Alert>
       ))}
     </div>
