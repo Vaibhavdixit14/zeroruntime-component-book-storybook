@@ -9,6 +9,7 @@ import {
   RailItem,
   Sidebar,
   Switcher,
+  Logo,
   type SwitcherOption,
 } from "zeroruntime-component-book";
 
@@ -30,8 +31,6 @@ const sections = [
   { label: "Developers", icon: Code, links: ["Docs", "API reference"] },
 ];
 
-// Stand-in for the ZRT Logo/Mark
-const Logo = () => <span aria-label="ZRT" className="size-6 rounded-(--radius-xs) bg-(image:--brand-primary)" />;
 
 function AgentSwitcher({ compact }: { compact?: boolean }) {
   const [agent, setAgent] = useState("ab");
@@ -88,7 +87,7 @@ export const Nested: Story = {
           {...args}
           className="h-[calc(100dvh-24px)]"
           collapsed={collapsed}
-          logo={<Logo />}
+          logo={<Logo size={24} />}
           onToggle={() => setCollapsed(!collapsed)}
           agentSwitcher={<AgentSwitcher compact={collapsed} />}
           footer={<OrgSwitcher compact={collapsed} />}
@@ -123,7 +122,7 @@ export const Card: Story = { ...Nested, args: { variant: "card", children: null 
 export const Headings: Story = {
   render: (args) => (
     <div className="flex p-(--space-12)">
-      <Sidebar {...args} className="h-[calc(100dvh-24px)]" logo={<Logo />} onToggle={() => {}} agentSwitcher={<AgentSwitcher />} footer={<OrgSwitcher />}>
+      <Sidebar {...args} className="h-[calc(100dvh-24px)]" logo={<Logo size={24} />} onToggle={() => {}} agentSwitcher={<AgentSwitcher />} footer={<OrgSwitcher />}>
         <NavHeading label="Engage" />
         <NavItem label="Audiences" icon={Activity} href="#" />
         <NavItem label="Agents" icon={Code} href="#" />
