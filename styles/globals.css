@@ -1,6 +1,6 @@
 /*
  * Tailwind root for story layout wrappers only (flex/grid/gap/padding).
- * Component styles and tokens come from zeroruntime-component-book/styles.
+ * Component styles and ZRT tokens come from zeroruntime-component-book/styles.
  */
 @import "tailwindcss";
 
