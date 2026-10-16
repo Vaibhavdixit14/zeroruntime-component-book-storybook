@@ -1,15 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { Notification, type NotificationType } from "zeroruntime-component-book";
+import { Notification, TextInput, type NotificationType } from "zeroruntime-component-book";
 
 const TYPES: NotificationType[] = ["info", "danger", "warning", "success"];
 
-// Stand-in until Text input ships
 const ConfirmInput = () => (
-  <input
-    aria-label="Type the agent name to confirm"
-    placeholder="Appointment Booker"
-    className="h-10 w-full rounded-(--radius-lg) border border-(--field-border) bg-(--field-bg) px-(--space-12) text-body-md-regular text-(--field-text) outline-none placeholder:text-(--field-placeholder) focus:border-(--field-border-focus)"
-  />
+  <TextInput aria-label="Type the agent name to confirm" placeholder="Appointment Booker" className="w-full" />
 );
 
 const meta = {
