@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Bold, Heading1, Italic } from "lucide-react";
-import { Mention, RichTextEditor, ToolbarButton, mentionToHtml, type MentionOption } from "zeroruntime-component-book";
+import { Mention, RichTextEditor, ToolbarButton, mentionToMarkdown, type MentionOption } from "zeroruntime-component-book";
 
 const MENTIONS: MentionOption[] = [
   { id: "cold-transfer", label: "Cold Transfer Call", kind: "tool" },
@@ -10,7 +10,7 @@ const MENTIONS: MentionOption[] = [
   { id: "john", label: "John Doe", kind: "other" },
 ];
 
-const FILLED = `${mentionToHtml(MENTIONS[0])} routes billing calls and summarises the reason for John Doe.`;
+const FILLED = `${mentionToMarkdown(MENTIONS[0])} routes billing calls and summarises the reason for John Doe.`;
 
 const meta = {
   title: "Rich Text Editor",
