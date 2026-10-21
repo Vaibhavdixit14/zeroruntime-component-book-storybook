@@ -377,7 +377,7 @@ Also exported: `SidebarHeader`, `SidebarToggle`.
 ### Switcher — *client*
 `src/components/navbar/switcher.tsx` · Types: `SwitcherProps`, `SwitcherOption`, `SwitcherAction`
 
-Agent / Org switcher. `heading`, `options: { id; initials; name; meta }[]`, `value`, `onValueChange`, `actions?: { label; icon?; onSelect? }[]`, `compact?` (rail), `side?: "bottom" | "top"` (agent opens down, org opens up).
+Agent / Org switcher. `heading`, `options: { id; initials; name; meta }[]`, `value`, `onValueChange`, `actions?: { label; icon?; onSelect? }[]`, `compact?` (rail), `side?: "bottom" | "top"` (agent opens down, org opens up). Shows three options; more scroll inside the menu so the actions stay in view.
 
 ### NavSection — *client*
 `src/components/navbar/nav-section.tsx` — `label`, `icon`, `links: { label; href?; active? }[]`, `defaultExpanded?`, `linkAs?`.
