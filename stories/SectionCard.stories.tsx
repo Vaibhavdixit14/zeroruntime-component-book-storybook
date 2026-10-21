@@ -21,6 +21,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 export const NoAction: Story = { args: { actionLabel: undefined } };
+export const WithDescription: Story = {
+  args: { title: "Members", description: "People who can see and change agents in Acme Inc.", actionLabel: "Invite" },
+};
 export const CustomActions: Story = {
   args: { actionLabel: undefined, actions: <Button variant="secondary" size="sm">Export</Button> },
 };
