@@ -45,9 +45,9 @@ Every component exports its props type and union types:
 import { Button, type ButtonProps, type ButtonVariant } from "zeroruntime-component-book";
 ```
 
-## Exported components (77)
+## Exported components (78)
 
-**Alert:** `Alert` · **Avatars:** `Avatar`, `AvatarGroup`, `AvatarLabel` · **Badges:** `Badge`, `StatusBadge` · **Breadcrumbs:** `Breadcrumbs`, `BreadcrumbItem`, `BreadcrumbOverflow`, `BreadcrumbSeparator` · **Chat:** `ChatInput`, `ChatDivider`, `MessageBubble`, `AgentStatus`, `TaskStep`, `PromptSuggestion` · **Checkbox:** `Checkbox`, `CheckboxItem`, `CheckboxGroup` · **Dialog:** `Dialog` (+ `DialogClose`) · **Code:** `CodeBlock`, `Command`, `InlineCode`, `CopyButton` · **File upload:** `FileDropzone`, `FileItem` · **Forms:** `FieldLabel`, `HelperText`, `Select`, `TextInput`, `TextArea` · **Logo:** `Logo` · **Menu:** `DropdownMenu` · **Navbar:** `Sidebar`, `SidebarHeader`, `SidebarToggle`, `Switcher`, `NavSection`, `NavItem`, `NavLink`, `NavHeading`, `RailItem`, `NavFlyout` · **Notification:** `Notification` · **Option card:** `OptionCard`, `OptionCardGroup` · **Progress:** `ProgressBar`, `Meter`, `SegmentedProgress`, `Segment` · **Radio:** `RadioGroup`, `RadioItem`, `RadioCard`, `Radio` · **Rich text editor:** `RichTextEditor`, `ToolbarButton`, `Mention` · **Search:** `Search` · **Slider:** `Slider` · **Switch:** `Switch`, `SwitchItem` · **Table:** `Table`, `TableHeader`, `TableHeaderCell`, `TableRow`, `TableCell`, `TableFooter` · **Tabs:** `Tabs`, `TabGroup`, `Tab`, `TabPanel` · **Toast:** `Toast`, `ToastProvider` (+ `useToast`) · **Tooltip:** `Tooltip` · **Buttons:** `Button`, `IconButton`, `BrandButton` · **Utils:** `cn`
+**Alert:** `Alert` · **Avatars:** `Avatar`, `AvatarGroup`, `AvatarLabel` · **Badges:** `Badge`, `StatusBadge` · **Breadcrumbs:** `Breadcrumbs`, `BreadcrumbItem`, `BreadcrumbOverflow`, `BreadcrumbSeparator` · **Chat:** `ChatInput`, `ChatDivider`, `MessageBubble`, `AgentStatus`, `TaskStep`, `PromptSuggestion` · **Checkbox:** `Checkbox`, `CheckboxItem`, `CheckboxGroup` · **Dialog:** `Dialog` (+ `DialogClose`) · **Code:** `CodeBlock`, `Command`, `InlineCode`, `CopyButton` · **File upload:** `FileDropzone`, `FileItem` · **Forms:** `FieldLabel`, `HelperText`, `Select`, `MultiSelect`, `TextInput`, `TextArea` · **Logo:** `Logo` · **Menu:** `DropdownMenu` · **Navbar:** `Sidebar`, `SidebarHeader`, `SidebarToggle`, `Switcher`, `NavSection`, `NavItem`, `NavLink`, `NavHeading`, `RailItem`, `NavFlyout` · **Notification:** `Notification` · **Option card:** `OptionCard`, `OptionCardGroup` · **Progress:** `ProgressBar`, `Meter`, `SegmentedProgress`, `Segment` · **Radio:** `RadioGroup`, `RadioItem`, `RadioCard`, `Radio` · **Rich text editor:** `RichTextEditor`, `ToolbarButton`, `Mention` · **Search:** `Search` · **Slider:** `Slider` · **Switch:** `Switch`, `SwitchItem` · **Table:** `Table`, `TableHeader`, `TableHeaderCell`, `TableRow`, `TableCell`, `TableFooter` · **Tabs:** `Tabs`, `TabGroup`, `Tab`, `TabPanel` · **Toast:** `Toast`, `ToastProvider` (+ `useToast`) · **Tooltip:** `Tooltip` · **Buttons:** `Button`, `IconButton`, `BrandButton` · **Utils:** `cn`
 
 ---
 
@@ -314,6 +314,23 @@ Drag-and-drop zone with a Secondary "Or select file" fallback; shows the Drag ov
 
 Use a segmented control or radios for 3–5 options; prefer a sensible default.
 
+### MultiSelect — *client*
+`src/components/forms/multi-select.tsx` · Type: `MultiSelectProps`
+
+Select trigger that opens a popover of checkbox rows; it stays open while picking. Same trigger look and `size`, `label`, `required`, `placeholder`, `disabled` as Select.
+
+| Prop | Type | Default |
+|---|---|---|
+| `options` | `SelectOption[]` — the rows on screen; with `onSearchChange` the caller filters / pages them | — |
+| `value` / `onValueChange` | `string[]` | — |
+| `summary` | `(value) => string` — trigger text once something is picked | label for one, `"N selected"` |
+| `search` / `onSearchChange` / `searchPlaceholder` | adds a Search box (outline, md) at the top of the menu | — / — / `"Search"` |
+| `searchDisabled` | disables the search box, e.g. while a Load more is in flight | — |
+| `hasMore` / `onLoadMore` / `loading` | "Load more" row under the list (server paging) | — |
+| `emptyText` | shown when `options` is empty | `"Nothing to pick"` |
+
+Picked values may not be in the current `options` (another page or search) — pass `summary` so the trigger still names them.
+
 ### TextInput — *client*
 `src/components/forms/text-input.tsx` · Types: `TextInputProps`, `TextInputSize`, `FieldStatus`
 
@@ -460,7 +477,7 @@ Current level: 36px field with a `--progress-meter` fill, an edge marker and the
 | `color` | `"neutral" \| "green"` | `"neutral"` |
 | `segments` | `number` | block 24 · compact 24 · tick 48 |
 
-`Segment` is a single step (`variant`, `color`, `filled`).
+`Segment` is a single step (`variant`, `color`, `filled`). In a container narrower than the full bar, segments narrow (to 2px min) instead of overflowing.
 
 ## Radio
 
@@ -490,7 +507,7 @@ Must sit inside a `RadioGroup`.
 ### RichTextEditor — *client*
 `src/components/rich-text-editor/rich-text-editor.tsx` · Types: `RichTextEditorProps`, `MentionOption`
 
-Editor for prompts and agent instructions, built on [Tiptap](https://tiptap.dev) (ProseMirror) with the ZRT field, toolbar and menu styling. Toolbar: Bold, Italic, H1–H3, lists, Undo/Redo, Expand/Collapse. Typing `@` opens a mention picker (arrows, Enter/Tab, Escape). Uncontrolled: pass `defaultValue` markdown and read markdown changes from `onChange` (Tiptap `@tiptap/markdown`).
+Editor for prompts and agent instructions, built on [Tiptap](https://tiptap.dev) (ProseMirror) with the ZRT field, toolbar and menu styling. Toolbar: Bold, Italic, H1–H3, lists, Undo/Redo, Expand/Collapse. Typing `@` opens a mention picker and `{{` a variable picker (arrows, Enter/Tab, Escape); each opens only when it has something to offer. Uncontrolled: pass `defaultValue` markdown and read markdown changes from `onChange` (Tiptap `@tiptap/markdown`).
 
 | Prop | Type | Default |
 |---|---|---|
@@ -499,11 +516,14 @@ Editor for prompts and agent instructions, built on [Tiptap](https://tiptap.dev)
 | `defaultValue` | initial markdown — build chips with `mentionToMarkdown({ id, label, kind })` | `""` |
 | `onChange` | `(markdown: string) => void` | — |
 | `mentions` | `{ id, label, kind? }[]` for the @ picker | `[]` |
+| `onMentionSearch` | `(query, signal) => Promise<MentionOption[]>` — fetches picker options as the user types (200ms debounce, older queries aborted). A bare `@` shows `mentions` at once; while a search runs the picker keeps its rows with a "Searching…" row, and shows "No matches" when empty. With neither `mentions` nor `onMentionSearch`, `@` is plain text | — |
+| `variables` | `string[]` — names for the `{{` picker; picking one inserts a `{{name}}` chip, and a chip for any other name turns red (`data-unknown`). Without them `{{` opens nothing and no chip is judged | — |
+| `format` | `"markdown"` \| `"text"` — `"text"` loads and returns plain text (a line per paragraph, no formatting, no escaping; chips as `{{name}}` / `@label`), for words said as written. Pair with `showToolbar={false}` | `"markdown"` |
 | `showToolbar` | `boolean` | `true` |
 | `disabled` | `boolean` | — |
 | `onExpand` / `onCollapse` | shows the Expand / Collapse buttons | — |
 
-Mention chips are saved as the shortcode `[@ id="…" label="…" kind="…"]`, so saved content loads back with its chips; rendered chips carry `data-mention="<id>"`. Markdown shortcuts work too (`# ` heading, `- ` list, `**bold**`).
+Mention chips are saved as the shortcode `[@ id="…" label="…" kind="…"]`, so saved content loads back with its chips; rendered chips carry `data-mention="<id>"`. Variables (`{{name}}`, name = letters, numbers, `_`) are blue chips saved as exactly `{{name}}` (never escaped), whether picked or typed; rendered chips carry `data-variable="<name>"`. Markdown shortcuts work too (`# ` heading, `- ` list, `**bold**`).
 
 ### Mention / ToolbarButton
 - `Mention`: inline chip `@label`. `kind`: `"tool"` (orange) · `"variable"` (blue) · `"agent"` (purple) · `"knowledge"` (green) · `"other"` (neutral).
