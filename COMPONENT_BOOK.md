@@ -305,7 +305,7 @@ Drag-and-drop zone with a Secondary "Or select file" fallback; shows the Drag ov
 
 | Prop | Type | Default |
 |---|---|---|
-| `options` | `{ value; label; disabled? }[]` | — |
+| `options` | `{ value; label; disabled?; leading? }[]` — `leading` (ReactNode) shows before the label in the menu only; clicks on it don't pick the option | — |
 | `size` | `"lg" \| "md"` — 40 / 32px | `"lg"` |
 | `label` / `required` | Field Label above the trigger | — |
 | `placeholder` | `string` | `"- Select -"` |
